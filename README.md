@@ -1,5 +1,11 @@
 # Home of Bjorkdal
 
+### Todo
+- add tailwind https://tailwindcss.com/
+- complete i18n
+- add letsencrypt ssl cert
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Localized as per https://medium.com/@tariqul.islam.rony/internationalization-localization-with-react-js-65d6f6badd56. 

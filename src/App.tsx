@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import styled from '@emotion/styled'
 
 import {
@@ -11,56 +10,63 @@ import {
 import Main from './Main';
 import Accommodation from './Accommodation';
 import Gallery from './Gallery';
-
-const ContactMenu = styled('pre')`
-  text-align: center;
-  white-space: pre-line;
-`
+import Visit from './Visit';
+import Contact from './Contact';
 
 const Header = styled('header')`
   display: flex;
   justify-content: space-between;
-  height: 30px;
+  align-items: center;
+  height: 4em;
 `
 
 const Footer = styled('footer')`
   position: fixed;
+  left: 0;
   bottom: 0;
   display: flex;
-  justify-content: space-between;
-  width: inherit;
+  justify-content: center;
+  width: 100vw;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
 `
 
 
 function App() {
-  return (<div style={{margin: '.2em 10em', height: '100vh'}}>
+  const [lang, onLangChange] = React.useState('sv')
+
+  return (<div style={{margin: '.2em 15em', height: '100vh'}}>
     <Router>
       <Header>
-        <Link to="/">Villa Björkdal</Link>
-        <Link to="/bnb">Bed & Breakfast</Link>
-        <Link to="/galleri">Galleri</Link>
-        <Link to="/kontakt">Kontakta oss</Link>
+        <Link to="/" style={{fontFamily: 'Parisienne', fontSize: '2.5em', textDecoration: 'none', color: 'black'}}>Villa Björkdal</Link>
+        <Link to="/besok" style={{textDecoration: 'none', color: '#595959'}}>Besök Björkdal</Link>
+        <Link to="/galleri" style={{textDecoration: 'none', color: '#595959'}}>Galleri</Link>
+        <Link to="/pargas" style={{textDecoration: 'none', color: '#595959'}}>Besök Pargas</Link>
+        <Link to="/kontakt" style={{textDecoration: 'none', color: '#595959'}}>Kontakta oss</Link>
+        {/* <select name="lang">
+          <option value="sv">SV</option>
+          <option value="fi">FI</option>
+          <option value="en">EN</option>
+        </select> */}
       </Header>
       <Switch>
         <Route path="/galleri">
           <Gallery />
         </Route>
-        <Route path="/bnb">
+        <Route path="/besok">
           <Accommodation />
+        </Route>
+        <Route path="/pargas">
+          <Visit />
+        </Route>
+        <Route path="/kontakt">
+          <Contact />
         </Route>
         <Route path="/">
           <Main />
         </Route>
       </Switch>
-      <Footer>
-        <ContactMenu>
-          Kontakt:
-          Bed & Breakfast Villa Björkdal
-          Tervsundsvägen 155
-          21600 Pargas
-          tel. 044 732 6385
-        </ContactMenu>
-      </Footer>
     </Router>
   </div>
   );
